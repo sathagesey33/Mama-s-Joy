@@ -1,6 +1,6 @@
 .wrapper {
     position: fixed; /* Changed from relative to fixed */
-    width: 450px;
+    width: 420px;
     height: 500px;
     top: 50%; /* Changed from 0 to 50% */
     left: 50%; /* Changed from 0 to 50% */

@@ -1,0 +1,194 @@
+.wrapper {
+    position: fixed; /* Changed from relative to fixed */
+    width: 450px;
+    height: 500px;
+    top: 50%; /* Changed from 0 to 50% */
+    left: 50%; /* Changed from 0 to 50% */
+    transform: translate(-50%, -50%) scale(0); /* Added translate to center the element */
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform .5s ease, height .2s ease;
+    z-index: 1000;
+}
+
+.wrapper.active-popup {
+    transform: translate(-50%, -50%) scale(1); /* Added translate to center the element */
+}
+
+.wrapper.active {
+    height: 520px;
+}
+  
+  .wrapper .X {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: red;
+    opacity: 0.2;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .wrapper.active .login-form {
+    transition: none;
+    transform: translateX(-400px);
+  }
+  
+  .wrapper .login-form {
+    width: 100%;
+    padding: 40px;
+    /* display: none; */
+    transition: transform .18s ease;
+    transform: translateX(0);
+  }
+  
+  .wrapper .login-form h2 {
+    font-size: 2em;
+    color: #0A2E72;
+    text-align: center;
+  }
+  
+  .wrapper .registration-form {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+  }
+  
+  .wrapper.active .registration-form {
+    transition: transform .18s ease;
+    transform: translateX(0);
+  }
+  
+  .wrapper .registration-form h2 {
+    font-size: 2em;
+    color: #0A2E72;
+    text-align: center;
+  }
+  
+  .input {
+    position: relative;
+    width: 100%;
+    height: 35px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+  }
+  
+  .input label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color:  #173E87;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .input input:focus~label,
+  .input input:valid~label {
+    top: -5px;
+  }
+  
+  .input input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+  }
+  
+  .input .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: black;
+    line-height: 57px;
+  }
+  
+  .rem {
+    font-size: .9em;
+    color: greenyellow;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .rem label input {
+    accent-color: green;
+    margin-right: 3px;
+  }
+  
+  .rem a {
+    color: orange;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .rem a:hover {
+    text-decoration: underline;
+  }
+  
+  .btn {
+    width: 100%;
+    height: 40px;
+    background: #0088FF;
+    border: none;
+    outline: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+  }
+  
+  .login-register {
+    font-size: .9em;
+    color: greenyellow;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+  }
+  
+  .login-register p a {
+    color: orange;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .login-register p a:hover {
+    text-decoration: underline;
+  }
+  /* Add this to your CSS */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}

@@ -15,21 +15,9 @@ header {
   
   }
 
-  .great-vibes-regular {
-    font-family: "Great Vibes", cursive;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  header h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
   .logo {
     margin: 0 5px; /* adjust as needed */
-    height: 150px; /* adjust as needed */
+    height: 200px; /* adjust as needed */
     width: auto; /* maintain aspect ratio */
   }
   nav{

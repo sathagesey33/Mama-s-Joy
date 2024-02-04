@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="/static/style/nav.css">
   <link rel="stylesheet" href="/static/style/sidebar.css">
+  <link rel="stylesheet" href="/static/style/menus.css">
 
 </head>
 <body>
@@ -54,7 +55,7 @@
 
 
 
-    <button class="menu__item">
+    <button class="menu__item" id="profileButton">
         <div class="menu__icon" >
 
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -111,7 +112,44 @@
         </div>
     </div>
 </div>
+<div class="childInfoForm" id="childInfoForm">
+    <form action="#">
+            <h2>Mother Details</h2>
+            <label>First Name: <input type="text" name="motherFirstName"></label>
+            <label>Last Name: <input type="text" name="motherLastName"></label>
+            <label>Blood Type: <input type="text" name="motherBloodType"></label>
+            <label>Medical History: <textarea name="motherMedicalHistory"></textarea></label>
+            <label>Allergies: <textarea name="motherAllergies"></textarea></label>
+            <label>Emergency Contact Name: <input type="text" name="motherEmergencyContactName"></label>
+            <label>Emergency Contact Phone: <input type="tel" name="motherEmergencyContactPhone"></label>
+            <label>Insurance Information: <textarea name="motherInsuranceInformation"></textarea></label>
+            <label>Doctor's Name: <input type="text" name="motherDoctorsName"></label>
+            <label>Doctor's Phone: <input type="tel" name="motherDoctorsPhone"></label>
+            <label>Hospital Preference: <input type="text" name="motherHospitalPreference"></label>
+        
+            <h2>Baby Details</h2>
+            <label>Baby's Name: <input type="text" name="babyName"></label>
+            <label>Date of Birth: <input type="date" name="babyDOB"></label>
+            <label>Gender: <input type="text" name="babyGender"></label>
+            <label>Weight at Birth: <input type="number" name="babyWeight"></label>
+            <label>Height at Birth: <input type="number" name="babyHeight"></label>
+            <label>Blood Type: <input type="text" name="babyBloodType"></label>
+            <label>Medical History: <textarea name="babyMedicalHistory"></textarea></label>
+            <label>Allergies: <textarea name="babyAllergies"></textarea></label>
+            <label>Pediatrician's Name: <input type="text" name="babyPediatricianName"></label>
+            <label>Pediatrician's Phone: <input type="tel" name="babyPediatricianPhone"></label>
+            <label>Hospital of Birth: <input type="text" name="babyHospitalBirth"></label>
+            <label>Delivery Type: <input type="text" name="babyDeliveryType"></label>
+            <label>Apgar Score: <input type="number" name="babyApgarScore"></label>
+            <label>Birth Complications: <textarea name="babyBirthComplications"></textarea></label>
+            <label>Vaccination Record: <textarea name="babyVaccinationRecord"></textarea></label>
+            <label>Growth Progress: <textarea name="babyGrowthProgress"></textarea></label>
+            
+            <input type="submit" value="Submit">
+    </form>
+</div>
 <script  src="/static/nav.js"></script>
+<script src="/static/menus.js"></script>
 
 </body>
 </html>

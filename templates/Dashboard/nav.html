@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="/static/style/nav.css">
   <link rel="stylesheet" href="/static/style/sidebar.css">
-  <link rel="stylesheet" href="/static/style/menus.css">
+  <link rel="stylesheet" href="/static/style/details.css">
 
 </head>
 <body>
@@ -104,7 +104,7 @@
                 <button class="dropbtn">Dashboard <i class="fas fa-angle-up" id="angleIcon"></i></button>
                 <div class="dropdown-content">
                     <a href="#"><i class="fas fa-envelope" id="emailIcon"></i>Email</a>
-                    <a href="#"><i class="fas fa-calendar" id="calenderIcon"></i>Calender</a>
+                    <a href="/templates/Dashboard/calender.html"><i class="fas fa-calendar" id="calenderIcon"></i>Calender</a>
                     <a href="#"><i class="fas fa-bell" id="appointmentIcon"></i>Appointments</a>
                     <a href="#"><i class="fas fa-pen" id="keepnotesIcon"></i>Keep Notes</a>
                     <a href="#"><i class="fas fa-sign-out-alt" id="logoutIcon"></i>Logout</a>
@@ -113,7 +113,7 @@
     </div>
 </div>
 <div class="childInfoForm" id="childInfoForm">
-    <form action="#">
+    <form action="#" id="motherform">
             <h2>Mother Details</h2>
             <label>First Name: <input type="text" name="motherFirstName"></label>
             <label>Last Name: <input type="text" name="motherLastName"></label>
@@ -125,9 +125,11 @@
             <label>Insurance Information: <textarea name="motherInsuranceInformation"></textarea></label>
             <label>Doctor's Name: <input type="text" name="motherDoctorsName"></label>
             <label>Doctor's Phone: <input type="tel" name="motherDoctorsPhone"></label>
-            <label>Hospital Preference: <input type="text" name="motherHospitalPreference"></label>
-        
-            <h2>Baby Details</h2>
+            
+            <button type="button">Save</button>
+    </form>
+    <form action="#" id="babyform">
+        <h2>Baby Details</h2>
             <label>Baby's Name: <input type="text" name="babyName"></label>
             <label>Date of Birth: <input type="date" name="babyDOB"></label>
             <label>Gender: <input type="text" name="babyGender"></label>
@@ -144,8 +146,8 @@
             <label>Birth Complications: <textarea name="babyBirthComplications"></textarea></label>
             <label>Vaccination Record: <textarea name="babyVaccinationRecord"></textarea></label>
             <label>Growth Progress: <textarea name="babyGrowthProgress"></textarea></label>
-            
-            <input type="submit" value="Submit">
+
+            <button type="button">Save</button>
     </form>
 </div>
 <script  src="/static/nav.js"></script>

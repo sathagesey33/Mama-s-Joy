@@ -6,3 +6,8 @@ document.getElementById('profileButton').addEventListener('click', function() {
       form.style.display = 'none';
     }
   });
+
+  document.getElementById('profileButton').addEventListener('click', function() {
+    var form = document.getElementById('childInfoForm');
+    form.classList.toggle('visible');
+});

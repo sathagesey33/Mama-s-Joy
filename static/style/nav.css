@@ -23,7 +23,7 @@ body {
     margin: 0 ;
     height: 100vh ;
     display: flex ;
-    overflow: hidden ;
+    overflow: auto ;
     align-items: center ;
     justify-content: center ; 
     background-color: #f0f1f1 ;
@@ -66,8 +66,9 @@ header {
     width: 42em ;
     display: flex ;
     height: 4.4em ;
+    z-index: 1000;
     user-select: none ;
-    position: absolute;
+    position: fixed;
     align-items: center ;
     padding: 0 1.9em 2.5em ;
     justify-content: center ;

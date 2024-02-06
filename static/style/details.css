@@ -1,0 +1,50 @@
+.childInfoForm {
+    display: flex;
+    justify-content: space-between; /* Adjust alignment as needed */
+    top: 5.5em; /* Adjust as needed */
+    bottom: 0.5em;
+    position: absolute; /* Adjust as needed */
+    left: 260px;
+    z-index: 1;
+}
+
+
+#motherform, #babyform {
+    flex: 1;
+    width: calc(50% - 30px); /* 50% width minus margin */
+    max-width: 700px;
+    margin: 10px;
+    padding: 30px;
+    height: auto;
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form input[type="number"],
+form textarea,
+form select,
+form tel {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    padding: 10px 20px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}

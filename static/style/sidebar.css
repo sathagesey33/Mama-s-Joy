@@ -1,0 +1,90 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.container .sidebar {
+    width: 250px;
+    height: 100vh;
+    margin-top: 5.5em;
+    position: absolute;
+    overflow: auto;
+    background-color: #f5f5f5;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container .profileview {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center; /* center the text and image */
+}
+
+.container #profilepic {
+    border-radius: 50%; /* make the image round */
+    border: 3px solid #d51a6d;
+    width: 100px; /* adjust as needed */
+    height: 100px; /* adjust as needed */
+    object-fit: cover; /* keep aspect ratio */
+}
+
+.container .profileview h2, .profileview p {
+    margin: 10px 0; /* add some space around the text */
+}
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 16px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn-active {
+    color: #0088FF;
+    transition: color 0.3s ease;
+}
+#angleIcon {
+    margin-left: 50px;
+}
+#emailIcon {
+    margin-right: 25px;
+}
+#calenderIcon {
+    margin-right: 25px;
+}
+#appointmentIcon {
+    margin-right: 25px;
+}
+#keepnotesIcon {
+    margin-right: 25px;
+}
+#logoutIcon {
+    margin-right: 25px;
+}

@@ -22,3 +22,17 @@ btnPopups.forEach(btnPopup => {
 iconX.addEventListener('click', ()=> {
     wrapper.classList.remove('active-popup');
 });
+
+document.querySelector('.login-form form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Perform login validation here or send form data to server
+    // If login is successful:
+    window.location.href = '/templates/dashboard/nav.html';
+  });
+
+  document.querySelector('.registration-form form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Perform registration validation here or send form data to server
+    // If registration is successful:
+    window.location.href = '/templates/dashboard/nav.html';
+  });

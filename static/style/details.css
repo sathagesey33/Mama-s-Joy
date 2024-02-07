@@ -19,13 +19,17 @@
     flex: 1;
     width: calc(50% - 30px); /* 50% width minus margin */
     max-width: 700px;
-    margin: 10px;
+    margin: 20px;
     padding: 30px;
     height: auto;
     background: #f7f7f7;
     border: 1px solid #ccc;
     box-sizing: border-box;
     overflow: auto;
+}
+#motherform {
+    background-image: url(/static/images/icons8-heart-144.png);
+    background-repeat: no-repeat;
 }
 
 form label {

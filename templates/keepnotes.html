@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/style/notes.css">
+  <title>Keep Notes</title>
+</head>
+<body>
+  <div id="new-note-form">
+    <div id="note-inputs-container">
+      <input type="text" id="new-note-title" placeholder="Tittle" />
+      <textarea id="new-note-content" placeholder="Take a note..."></textarea>
+      <div id="new-note-extras">
+        <input type="color" id="new-note-color" value="#ffffff">
+        <button id="new-note-button">Save</button>
+      </div>
+    </div>
+  </div>
+  <div id="notes-container">
+    <!-- notes will be added here dynamically -->
+  </div>
+  <script src="/static/notes.js"></script>
+</body>
+</html>

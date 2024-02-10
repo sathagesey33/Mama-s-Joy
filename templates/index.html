@@ -71,19 +71,19 @@
     </span>
     <div class="login-form">
         <h2>Login</h2>
-        <form action="#">
+        <form action="/login" method="post">
             <div class="input">
                 <span class="icon">
                     <ion-icon name="mail-unread"></ion-icon>
                 </span>
-                <input type="email" required>
+                <input type="email" name="email" required>
                 <label>Email</label>
             </div>
             <div class="input">
                 <span class="icon">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                 </span>
-                <input type="password" required>
+                <input type="password" name="password" required>
                 <label>Password</label>
             </div>
             <div class="rem">
@@ -98,19 +98,19 @@
     </div>
     <div class="registration-form">
         <h2>Registration</h2>
-        <form action="#">
+        <form action="/register" method="post">
             <div class="input">
                 <span class="icon">
                     <ion-icon name="person-circle"></ion-icon>
                 </span>
-                <input type="text" required>
+                <input type="text" name="username" required>
                 <label>Fullname</label>
             </div>
             <div class="input">
                 <span class="icon">
                     <ion-icon name="mail-unread"></ion-icon>
                 </span>
-                <input type="email" required>
+                <input type="email" name="email" required>
                 <label>Email</label>
             </div>
             <div class="input">
@@ -124,14 +124,14 @@
                 <span class="icon">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                 </span>
-                <input type="password" required>
+                <input type="password" name="password" required>
                 <label>Password</label>
             </div>
             <div class="input">
                 <span class="icon">
                     <ion-icon name="lock-open-outline"></ion-icon>
                 </span>
-                <input type="password" required>
+                <input type="password" name="confirm_password" required>
                 <label>Confirm Password</label>
             </div>
             <div class="rem">

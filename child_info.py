@@ -15,11 +15,12 @@ def create_child_info():
         weight = request.form.get('babyWeight')
         height = request.form.get('babyHeight')
         user_id = request.form.get('user_id')
+        print(child_name)
 
         new_child_info = ChildInfo(child_name=child_name, date_of_birth=date_of_birth, gender=gender,
                                       weight=weight, height=height, user_id=user_id)
-        db.session.add(new_child_info)
-        db.session.commit()
+        #db.session.add(new_child_info)
+        #db.session.commit()
         return 'Child info created successfully!'
     return render_template("nav.html")
     

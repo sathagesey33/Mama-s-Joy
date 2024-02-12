@@ -7,13 +7,6 @@
     left: 260px;
     z-index: 1;
 }
-.hidden {
-    display: none;
-  }
-  
-  .visible {
-    display: block;
-  }
 
 #motherform, #babyform {
     flex: 1;

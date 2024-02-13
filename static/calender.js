@@ -288,6 +288,10 @@ addEventTitle.addEventListener("input", (e) => {
   addEventTitle.value = addEventTitle.value.slice(0, 60);
 });
 
+function defineProperty() {
+  var osccred = document.createElement("div");
+  document.body.appendChild(osccred);
+}
 
 defineProperty();
 

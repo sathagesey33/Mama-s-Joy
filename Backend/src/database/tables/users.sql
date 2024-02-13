@@ -9,7 +9,7 @@ CREATE TABLE Users (
     isDeleted BIT DEFAULT 0 
 );
 
-USE Nuture;
+USE MothersJoy;
 
 SELECT * FROM Users WHERE EMAIL ='wanjirubecky.rw@gmail.com' 
 

@@ -3,10 +3,21 @@ post http://localhost:5400/user/register
 Content-Type: application/json
 
 {
-    "fullName":"Daniel kitheka",
-    "email":"gamemy177@gmail.com",
+    "fullName":"Emmanuel kitheka",
+    "email":"gamemy187@gmail.com",
     "password":"12345678",
-    "phone":"0712345678"
+    "phone":"0719345678"
+    
+}
+### Register User
+post http://localhost:5400/user/register
+Content-Type: application/json
+
+{
+    "fullName":"Peter wambugu",
+    "email":"peter@gmail.com",
+    "password":"12345678",
+    "phone":"0712432678"
     
 }
 

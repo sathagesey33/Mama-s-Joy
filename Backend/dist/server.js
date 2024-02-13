@@ -42,6 +42,6 @@ app.use("/user", userRoutes_1.default);
 app.use("/child", childRoutes_1.default);
 app.use("/mother", motherRoutes_1.default);
 app.listen(port, () => {
-    console.log(`Nuture Hub running on port ${port}`);
+    console.log(`Mama's Joy running on port ${port}`);
     (0, sqlConfig_1.testConnection)();
 });

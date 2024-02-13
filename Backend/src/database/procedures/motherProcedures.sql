@@ -2,11 +2,6 @@ CREATE OR ALTER PROCEDURE saveMotherDetails
     @motherId VARCHAR(255),
     @FirstName VARCHAR(255),
     @LastName VARCHAR(255),
-    @Email VARCHAR(255),
-    @Password VARCHAR(255),
-    @DateOfBirth DATE,
-    @Address VARCHAR(255),
-    @PhoneNumber VARCHAR(20),
     @BloodType VARCHAR(10),
     @MedicalHistory VARCHAR(1000),
     @Allergies VARCHAR(500),
@@ -19,15 +14,10 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    INSERT INTO motherDetails (
+    INSERT INTO MotherDetails (
         motherId,
         firstName,
         lastName,
-        email,
-        password,
-        dateOfBirth,
-        address,
-        phoneNumber,
         bloodType,
         medicalHistory,
         allergies,
@@ -41,11 +31,6 @@ BEGIN
         @motherId,
         @FirstName,
         @LastName,
-        @Email,
-        @Password,
-        @DateOfBirth,
-        @Address,
-        @PhoneNumber,
         @BloodType,
         @MedicalHistory,
         @Allergies,
@@ -57,30 +42,18 @@ BEGIN
     );
 END;
 
+CREATE OR ALTER PROCEDURE getMotherDetails
+AS
+BEGIN
+    SET NOCOUNT ON;
 
+    SELECT * FROM MotherDetails;
+END;
 
--- CREATE PROCEDURE getMotherDetails
--- AS
--- BEGIN
---     SET NOCOUNT ON;
-
---     SELECT * FROM MotherDetails;
--- END;
-
-DROP PROCEDURE updateMotherDetails
-USE Nuture
-
-GO
-
-CREATE PROCEDURE updateMotherDetails
+CREATE OR ALTER PROCEDURE updateMotherDetails
     @motherId VARCHAR(255),
     @FirstName VARCHAR(255),
     @LastName VARCHAR(255),
-    @Email VARCHAR(255),
-    @Password VARCHAR(255),
-    @DateOfBirth DATE,
-    @Address VARCHAR(255),
-    @PhoneNumber VARCHAR(20),
     @BloodType VARCHAR(10),
     @MedicalHistory VARCHAR(1000),
     @Allergies VARCHAR(500),
@@ -97,11 +70,6 @@ BEGIN
     SET
         firstName = @FirstName,
         lastName = @LastName,
-        email = @Email,
-        password = @Password,
-        dateOfBirth = @DateOfBirth,
-        address = @Address,
-        phoneNumber = @PhoneNumber,
         bloodType = @BloodType,
         medicalHistory = @MedicalHistory,
         allergies = @Allergies,
@@ -114,6 +82,15 @@ BEGIN
         motherId = @motherId;
 END;
 
+CREATE OR ALTER PROCEDURE deleteMotherDetails
+    @motherId VARCHAR(255)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DELETE FROM MotherDetails WHERE motherId = @motherId;
+END;
+
 CREATE OR ALTER PROCEDURE getMotherDetailById
     @motherId VARCHAR(255)
 AS
@@ -122,7 +99,4 @@ BEGIN
 
     SELECT * FROM MotherDetails WHERE motherId = @motherId;
 END;
-
-
-
 

@@ -4,6 +4,7 @@ import {
   getMotherDetails,
   updateMotherDetails,
   deleteMotherDetails,
+  getSingleMotherDetails,
 } from "../controllers/motherController";
 
 
@@ -12,6 +13,8 @@ const mother_router = express.Router();
 
 mother_router.post("/saveMotherDetails", saveMotherDetails);
 mother_router.get("/fetchMotherDetails", getMotherDetails);
+mother_router.get("/mother/:motherId", getSingleMotherDetails);
+
 mother_router.put("/:motherId", updateMotherDetails);
 mother_router.delete("/:motherId", deleteMotherDetails);
 

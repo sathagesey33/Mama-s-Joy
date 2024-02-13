@@ -29,6 +29,14 @@ GET http://localhost:5400/mother/fetchMotherDetails
 
 
 ###
+# Get a single mother using ID
+GET http://localhost:5400/mother/mother/fcda4099-cdb5-40e6-b621-df01e9043de1
+
+
+
+
+
+###
 # Update Mother Details
 PUT http://localhost:5400/mother/48979b1b-e4f9-435b-99dd-b7ea97891204
 Content-Type: application/json

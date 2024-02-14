@@ -79,6 +79,32 @@ main .btnlogin-popup i {
 main .btnlogin-popup:hover {
   background-color: #ae0a53;
 }
+main .learnmore {
+  background-color: #d51a6d;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 4px;
+  transition: 0.3s ease-in;
+}
+main .content a {
+  text-decoration: none;
+  color: #fff;
+}
+main .learnmore i {
+  margin-left: 15px;
+}
+main .learnmore:hover {
+  background-color: #ae0a53;
+}
+
+.content .btnlogin-popup,
+.content .learnmore {
+  margin-top: 0.5em;
+}
 
 .swiper-container {
   position: relative;

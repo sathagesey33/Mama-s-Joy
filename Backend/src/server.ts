@@ -18,7 +18,7 @@ app.use("/child", child_router);
 app.use("/mother", mother_router);
 
 app.listen(port, () => {
-  console.log(`Nuture Hub running on port ${port}`);
+  console.log(`Mama's Joy running on port ${port}`);
 
   testConnection();
 });

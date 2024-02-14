@@ -18,3 +18,4 @@ CREATE TABLE BabyDetails (
     growthProgress VARCHAR(1000)
 );
 DROP TABLE BabyDetails;
+SELECT * FROM BabyDetails

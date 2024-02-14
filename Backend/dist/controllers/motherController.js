@@ -12,14 +12,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteMotherDetails = exports.updateMotherDetails = exports.getMotherDetails = exports.saveMotherDetails = void 0;
+exports.deleteMotherDetails = exports.updateMotherDetails = exports.getSingleMotherDetails = exports.getMotherDetails = exports.saveMotherDetails = void 0;
 const mssql_1 = __importDefault(require("mssql"));
 const sqlConfig_1 = require("../configs/sqlConfig");
 const uuid_1 = require("uuid");
 // Save mother details
 const saveMotherDetails = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { firstName, lastName, email, password, dateOfBirth, address, phoneNumber, bloodType, medicalHistory, allergies, emergencyContactName, emergencyContactPhone, insuranceInformation, doctorName, doctorPhone, } = req.body;
+        const { firstName, lastName, bloodType, medicalHistory, allergies, emergencyContactName, emergencyContactPhone, insuranceInformation, doctorName, doctorPhone, } = req.body;
         const pool = yield mssql_1.default.connect(sqlConfig_1.sqlConfig);
         const motherId = (0, uuid_1.v4)();
         const result = yield pool
@@ -27,11 +27,6 @@ const saveMotherDetails = (req, res) => __awaiter(void 0, void 0, void 0, functi
             .input("motherId", mssql_1.default.VarChar, motherId)
             .input("firstName", mssql_1.default.VarChar, firstName)
             .input("lastName", mssql_1.default.VarChar, lastName)
-            .input("email", mssql_1.default.VarChar, email)
-            .input("password", mssql_1.default.VarChar, password)
-            .input("dateOfBirth", mssql_1.default.Date, dateOfBirth)
-            .input("address", mssql_1.default.VarChar, address)
-            .input("phoneNumber", mssql_1.default.VarChar, phoneNumber)
             .input("bloodType", mssql_1.default.VarChar, bloodType)
             .input("medicalHistory", mssql_1.default.VarChar, medicalHistory)
             .input("allergies", mssql_1.default.VarChar, allergies)
@@ -53,6 +48,7 @@ const saveMotherDetails = (req, res) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 exports.saveMotherDetails = saveMotherDetails;
+// Get mother details
 const getMotherDetails = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const pool = yield mssql_1.default.connect(sqlConfig_1.sqlConfig);
@@ -69,23 +65,43 @@ const getMotherDetails = (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.getMotherDetails = getMotherDetails;
+// Get single mother details
+const getSingleMotherDetails = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { motherId } = req.params;
+        const pool = yield mssql_1.default.connect(sqlConfig_1.sqlConfig);
+        const motherDetail = yield (yield pool
+            .request()
+            .input("motherId", mssql_1.default.VarChar, motherId)
+            .execute("getMotherDetailById")).recordset;
+        if (motherDetail.length === 0) {
+            return res.status(404).json({
+                error: "Mother details not found",
+            });
+        }
+        return res.status(200).json({
+            motherDetail: motherDetail[0],
+        });
+    }
+    catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            error: "Internal Server Error",
+        });
+    }
+});
+exports.getSingleMotherDetails = getSingleMotherDetails;
 // Update mother details
 const updateMotherDetails = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { firstName, lastName, email, password, dateOfBirth, address, phoneNumber, bloodType, medicalHistory, allergies, emergencyContactName, emergencyContactPhone, insuranceInformation, doctorName, doctorPhone, } = req.body;
-        const pool = yield mssql_1.default.connect(sqlConfig_1.sqlConfig);
+        const { firstName, lastName, bloodType, medicalHistory, allergies, emergencyContactName, emergencyContactPhone, insuranceInformation, doctorName, doctorPhone, } = req.body;
         const { motherId } = req.params;
-        console.log(motherId);
+        const pool = yield mssql_1.default.connect(sqlConfig_1.sqlConfig);
         const result = yield pool
             .request()
             .input("motherId", mssql_1.default.VarChar, motherId)
             .input("firstName", mssql_1.default.VarChar, firstName)
             .input("lastName", mssql_1.default.VarChar, lastName)
-            .input("email", mssql_1.default.VarChar, email)
-            .input("password", mssql_1.default.VarChar, password)
-            .input("dateOfBirth", mssql_1.default.Date, dateOfBirth)
-            .input("address", mssql_1.default.VarChar, address)
-            .input("phoneNumber", mssql_1.default.VarChar, phoneNumber)
             .input("bloodType", mssql_1.default.VarChar, bloodType)
             .input("medicalHistory", mssql_1.default.VarChar, medicalHistory)
             .input("allergies", mssql_1.default.VarChar, allergies)
@@ -96,7 +112,7 @@ const updateMotherDetails = (req, res) => __awaiter(void 0, void 0, void 0, func
             .input("doctorPhone", mssql_1.default.VarChar, doctorPhone)
             .execute("updateMotherDetails");
         return res.status(200).json({
-            message: "Mother details updated successfully"
+            message: "Mother details updated successfully",
         });
     }
     catch (error) {

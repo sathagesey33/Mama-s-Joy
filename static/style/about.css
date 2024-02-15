@@ -80,12 +80,12 @@
     transform: translateX(-50%);
   }
   #freeimage3 {
-    top: 30em;
-    left: 10%;
+    top: 33em;
+    left: 11%;
     transform: translateY(-50%);
   }
   #freeimage4 {
-    top: 20em;
+    top: 19em;
     left: 10%;
     transform: translateY(-50%);
   }
@@ -106,7 +106,12 @@
     transform: translateY(-50%);
   }
   #freeimage8 {
-    top: 25em;
-    left: 20%;
+    top: 27em;
+    left: 18%;
+    transform: translateY(-50%);
+  }
+  #freeimage9 {
+    top: 26em;
+    left: 8%;
     transform: translateY(-50%);
   }

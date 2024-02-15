@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for,  send_from
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User, ChildInfo
+from datetime import datetime
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'  # Use SQLite for simplicity
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://@localhost/baby_growth'
@@ -33,7 +35,8 @@ def get_image(filename):
 def create_child_info():
     if request.method == 'POST':
         child_name = request.form.get("babyName")
-        date_of_birth = request.form.get('babyDOB')
+        date_of_birth_str = request.form.get('babyDOB')
+        date_of_birth = datetime.strptime(date_of_birth_str, '%Y-%m-%d').date()
         gender = request.form.get('babyGender')
         weight = request.form.get('babyWeight')
         height = request.form.get('babyHeight')

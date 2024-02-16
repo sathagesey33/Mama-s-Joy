@@ -1,43 +1,106 @@
-document.getElementById('new-note-button').addEventListener('click', function() {
-  var noteTitle = document.getElementById('new-note-title').value;
-  var noteContent = document.getElementById('new-note-content').value;
-  var noteColor = document.getElementById('new-note-color').value;
-  if (noteTitle || noteContent) {
-    var noteElement = document.createElement('div');
-    noteElement.style.backgroundColor = noteColor;
-    noteElement.innerHTML = '<h2>' + noteTitle + '</h2><p>' + noteContent + '</p><button class="delete-note">Delete</button>';
-    noteElement.querySelector('.delete-note').addEventListener('click', function() {
-      noteElement.remove();
-    });
-    document.getElementById('notes-container').appendChild(noteElement);
-    document.getElementById('new-note-title').value = '';
-    document.getElementById('new-note-content').value = '';
-    document.getElementById('new-note-color').value = '#ffffff';
-  }
+// 
+const addBox = document.querySelector(".add-box"),
+popupBox = document.querySelector(".popup-box"),
+popupTitle = popupBox.querySelector("header p"),
+closeIcon = popupBox.querySelector("header i"),
+titleTag = popupBox.querySelector("input"),
+descTag = popupBox.querySelector("textarea"),
+addBtn = popupBox.querySelector("button");
+
+const months = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"];
+const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+let isUpdate = false, updateId;
+
+addBox.addEventListener("click", () => {
+    popupTitle.innerText = "Add a new Note";
+    addBtn.innerText = "Add Note";
+    popupBox.classList.add("show");
+    document.querySelector("body").style.overflow = "hidden";
+    if(window.innerWidth > 660) titleTag.focus();
 });
 
-function autoExpand(element) {
-  element.style.height = 'inherit';
-  const computed = window.getComputedStyle(element);
-  const height = parseInt(computed.getPropertyValue('border-top-width'), 10)
-               + parseInt(computed.getPropertyValue('padding-top'), 10)
-               + element.scrollHeight
-               + parseInt(computed.getPropertyValue('padding-bottom'), 10)
-               + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+closeIcon.addEventListener("click", () => {
+    isUpdate = false;
+    titleTag.value = descTag.value = "";
+    popupBox.classList.remove("show");
+    document.querySelector("body").style.overflow = "auto";
+});
 
-  element.style.height = height + 'px';
+function showNotes() {
+    if(!notes) return;
+    document.querySelectorAll(".note").forEach(li => li.remove());
+    notes.forEach((note, id) => {
+        let filterDesc = note.description.replaceAll("\n", '<br/>');
+        let liTag = `<li class="note">
+                        <div class="details">
+                            <p>${note.title}</p>
+                            <span>${filterDesc}</span>
+                        </div>
+                        <div class="bottom-content">
+                            <span>${note.date}</span>
+                            <div class="settings">
+                                <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
+                                <ul class="menu">
+                                    <li onclick="updateNote(${id}, '${note.title}', '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
+                                    <li onclick="deleteNote(${id})"><i class="uil uil-trash"></i>Delete</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>`;
+        addBox.insertAdjacentHTML("afterend", liTag);
+    });
+}
+showNotes();
+
+function showMenu(elem) {
+    elem.parentElement.classList.add("show");
+    document.addEventListener("click", e => {
+        if(e.target.tagName != "I" || e.target != elem) {
+            elem.parentElement.classList.remove("show");
+        }
+    });
 }
 
-document.getElementById('new-note-title').addEventListener('input', function() {
-  autoExpand(this);
-});
+function deleteNote(noteId) {
+    let confirmDel = confirm("Are you sure you want to delete this note?");
+    if(!confirmDel) return;
+    notes.splice(noteId, 1);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    showNotes();
+}
 
-document.getElementById('new-note-content').addEventListener('input', function() {
-  autoExpand(this);
-});
+function updateNote(noteId, title, filterDesc) {
+    let description = filterDesc.replaceAll('<br/>', '\r\n');
+    updateId = noteId;
+    isUpdate = true;
+    addBox.click();
+    titleTag.value = title;
+    descTag.value = description;
+    popupTitle.innerText = "Update a Note";
+    addBtn.innerText = "Update Note";
+}
 
-document.getElementById('notes-container').addEventListener('click', function(event) {
-  if (event.target.classList.contains('note')) {
-    event.target.classList.toggle('expanded');
-  }
+addBtn.addEventListener("click", e => {
+    e.preventDefault();
+    let title = titleTag.value.trim(),
+    description = descTag.value.trim();
+
+    if(title || description) {
+        let currentDate = new Date(),
+        month = months[currentDate.getMonth()],
+        day = currentDate.getDate(),
+        year = currentDate.getFullYear();
+
+        let noteInfo = {title, description, date: `${month} ${day}, ${year}`}
+        if(!isUpdate) {
+            notes.push(noteInfo);
+        } else {
+            isUpdate = false;
+            notes[updateId] = noteInfo;
+        }
+        localStorage.setItem("notes", JSON.stringify(notes));
+        showNotes();
+        closeIcon.click();
+    }
 });

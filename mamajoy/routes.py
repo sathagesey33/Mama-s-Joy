@@ -17,6 +17,10 @@ def index():
 def dashboard():
     return render_template('nav.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 @app.route('/static/images/<filename>')
 def get_image(filename):
     return send_from_directory('static/images', filename)
@@ -66,9 +70,15 @@ def serve_nav_css():
 def serve_form_css():
     return send_from_directory('static', 'form.css')
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
+@app.route('/templates/calender')
+def calendar_redirect():
+    # Redirect to the desired page based on the navigation HTML
+    return render_template('calender.html')
+
+@app.route('/templates/keepnotes')
+def keepnotes_redirect():
+    # Redirect to the desired page based on the navigation HTML
+    return render_template('keepnotes.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])

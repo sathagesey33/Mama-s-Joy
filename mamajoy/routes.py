@@ -66,6 +66,10 @@ def serve_nav_css():
 def serve_form_css():
     return send_from_directory('static', 'form.css')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

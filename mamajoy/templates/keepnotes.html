@@ -9,24 +9,13 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
-  <div class="popup-box">
-    <div class="popup">
-      <div class="content">
-        <header>
-          <p></p>
-          <i class="uil uil-times"></i>
-        </header>
-        <form action="#">
-          <div class="row title">
-            <label>Title</label>
-            <input type="text" spellcheck="false">
-          </div>
-          <div class="row description">
-            <label>Description</label>
-            <textarea spellcheck="false"></textarea>
-          </div>
-          <button></button>
-        </form>
+  <div id="new-note-form">
+    <div id="note-inputs-container">
+      <input type="text" id="new-note-title" placeholder="Tittle" />
+      <textarea id="new-note-content" placeholder="Take a note..."></textarea>
+      <div id="new-note-extras">
+        <input type="color" id="new-note-color" value="#ffffff">
+        <button id="new-note-button">Save</button>
       </div>
     </div>
   </div>

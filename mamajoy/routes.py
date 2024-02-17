@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect, url_for,  send_from_directory, session
-from mamajoy.models import db, User, ChildInfo
+from mamajoy.models import db, User, ChildInfo, Note
+from datetime import datetime
 from mamajoy import app
 
 #class User(db.Model):
@@ -34,6 +35,15 @@ def create_child_info():
         gender = request.form.get('babyGender')
         weight = request.form.get('babyWeight')
         height = request.form.get('babyHeight')
+        babyBloodType = request.form.get('babyBloodType')
+        babyMedicalHistory = request.form.get('babyMedicalHistory')
+        Allergies = request.form.get('babyAllergies')
+        Pediatrician_Name = request.form.get('babyPediatricianName')
+        Pediatrician_Phone = request.form.get('babyPediatricianPhone')
+        Hospital_Birth = request.form.get('babyHospitalBirth')
+        Delivery_Type = request.form.get('babyDeliveryType')
+        Apgar_Score = request.form.get('babyApgarScore')
+        Birth_Complications = request.form.get('babyBirthComplications')
         user_id = session['user_id']
         print(child_name)
 
@@ -44,6 +54,20 @@ def create_child_info():
         db.session.commit()
         return 'Child info created successfully!'
     return render_template("nav.html")
+
+
+@app.route('/save_note', methods=['POST'])
+def save_note():
+    if request.method == 'POST':
+        note = request.form.get('note')
+        user_id = session['user_id']
+        print(note)
+
+        new_note = ChildInfo(notes=note, user_id=user_id)
+        db.session.add(new_note)
+        db.session.commit()
+        return 'Note saved successfully!'
+    return render_template("keepnotes.html")
 
 
 @app.route('/static/script.js')

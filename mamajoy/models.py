@@ -35,8 +35,20 @@ class ChildInfo(db.Model):
     gender = db.Column(db.String(10))
     weight = db.Column(db.Float)
     height = db.Column(db.Float)
+    babyBloodType = db.Column(db.String(10))
+    babyMedicalHistory = db.Column(db.String(255))
+    babyAllergies = db.Column(db.String(255))
+    babyPediatricianName = db.Column(db.String(50))
+    babyPediatricianPhone = db.Column(db.String(15))
+    babyHospitalBirth = db.Column(db.String(50))
+    babyDeliveryType = db.Column(db.String(50))
+    babyApgarScore = db.Column(db.Integer)
+    babyBirthComplications = db.Column(db.String(255))
+    
+    
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
    # mother_id = db.Column(db.Integer, db.ForeignKey('mother_record.id'), nullable=False)
+    
 
     # Many-to-One relationship with User Table
    # user = db.relationship('User', backref=db.backref('child_info', lazy=True))
@@ -47,11 +59,13 @@ class ChildInfo(db.Model):
     # One-to-Many relationship with Journal Entries Table
     #journal_entries = db.relationship('JournalEntry', backref='child_info', lazy=True)
 
-#class JournalEntry(db.Model):
-   # id = db.Column(db.Integer, primary_key=True)
-    #entry_date = db.Column(db.Date)
-    #entry_text = db.Column(db.Text)
-    #child_id = db.Column(db.Integer, db.ForeignKey('child_info.id'), nullable=False)
+class Note(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100))
+    content = db.Column(db.Text)
+    color = db.Column(db.String(7))
+
+
 
     # Many-to-One relationship with Child Info Table
     #child_info = db.relationship('ChildInfo', backref=db.backref('journal_entries', lazy=True))

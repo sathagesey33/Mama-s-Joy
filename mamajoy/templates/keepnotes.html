@@ -9,11 +9,12 @@
 <body>
   <div id="new-note-form">
     <div id="note-inputs-container">
-      <input type="text" id="new-note-title" placeholder="Tittle" />
-      <textarea id="new-note-content" placeholder="Take a note..."></textarea>
-      <div id="new-note-extras">
-        <input type="color" id="new-note-color" value="#ffffff">
-        <button id="new-note-button">Save</button>
+      <form action="/save_note" method="post"></form>
+      <input type="text" name="title" id="new-note-title" placeholder="Tittle" />
+      <textarea  name="content" id="new-note-content" placeholder="Take a note..."></textarea>
+      <div id="content" new-note-extras >
+        <input type="color" name="color" id="new-note-color" value="#ffffff">
+        <button type="submit id="new-note-button>Save</button>
       </div>
     </div>
   </div>

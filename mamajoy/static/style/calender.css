@@ -30,10 +30,14 @@
     background-color: #e2e1dc;
   }
   .container {
+    margin-top: 5.5em;
+    transform: scale(0.9);
     position: relative;
     width: 1200px;
     min-height: 850px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    margin-left: auto;
+    margin-right: auto;
     padding: 5px;
     color: #fff;
     display: flex;

@@ -74,7 +74,7 @@
   }
   
   .wrapper .registration-form h2 {
-    font-size: 2em;
+    font-size: 1.8em;
     color: #0A2E72;
     text-align: center;
   }
@@ -172,7 +172,7 @@
   .login-register p a {
     color: orange;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
   }
   
   .login-register p a:hover {

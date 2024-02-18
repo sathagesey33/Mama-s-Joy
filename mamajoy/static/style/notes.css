@@ -41,6 +41,7 @@ header {
   background: #618cf8;
 }
 .wrapper{
+  margin-top: 5.5em;
   margin: 50px;
   display: grid;
   gap: 25px;

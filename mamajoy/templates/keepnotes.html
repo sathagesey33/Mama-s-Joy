@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Notes</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/notes.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Iconscout Link For Icons -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-  </head>
-  <body>
-    <header class="nav">
-      <img src="/static/images/Mama_s_Joy-removebg-preview.png" alt="Purple Rose Logo" id="logo">
-      <!-- <form action="/search" method="get">
+
+<head>
+  <meta charset="utf-8">
+  <title>Notes</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/notes.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Iconscout Link For Icons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+
+<body>
+  <header class="nav">
+    <img src="/static/images/Mama_s_Joy-removebg-preview.png" alt="Purple Rose Logo" id="logo">
+    <!-- <form action="/search" method="get">
           <input type="search" name="q" placeholder="Search...">
           <input type="submit" value="Search">
       </form> -->
-      <img src="/static/images/andrae-ricketts-Q9_zv0LN4jU-unsplash.jpg" alt="Profile" class="profile-image"
-          loading="lazy">
+    <img src="/static/images/andrae-ricketts-Q9_zv0LN4jU-unsplash.jpg" alt="Profile" class="profile-image"
+      loading="lazy">
   </header>
-    <div class="popup-box">
-      <div class="popup">
-        <div class="content">
-          <header>
-            <p></p>
-            <i class="uil uil-times"></i>
-          </header>
-          <form action="#">
-            <div class="row title">
-              <label>Title</label>
-              <input type="text" spellcheck="false">
-            </div>
-            <div class="row description">
-              <label>Description</label>
-              <textarea spellcheck="false"></textarea>
-            </div>
-            <button></button>
-          </form>
-        </div>
+  <div class="popup-box">
+    <div class="popup">
+      <div class="content">
+        <header>
+          <p></p>
+          <i class="uil uil-times"></i>
+        </header>
+        <form action="#">
+          <div class="row title">
+            <label>Title</label>
+            <input type="text" spellcheck="false">
+          </div>
+          <div class="row description">
+            <label>Description</label>
+            <textarea spellcheck="false"></textarea>
+          </div>
+          <button></button>
+        </form>
       </div>
     </div>
-    <div class="wrapper">
-      <li class="add-box">
-        <div class="icon"><i class="uil uil-plus"></i></div>
-        <p>Add new note</p>
-      </li>
-    </div>
+  </div>
+  <div class="wrapper">
+    <li class="add-box">
+      <div class="icon"><i class="uil uil-plus"></i></div>
+      <p>Add new note</p>
+    </li>
+  </div>
 
-    <script src="{{ url_for('static', filename='notes.js') }}"></script>
-    
-  </body>
+  <script src="{{ url_for('static', filename='notes.js') }}"></script>
+
+</body>
+
 </html>

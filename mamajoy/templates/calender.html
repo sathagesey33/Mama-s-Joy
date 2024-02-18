@@ -20,9 +20,19 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='style/calender.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/nav.css') }}">
     <title>Calendar with Events</title>
   </head>
   <body>
+    <header class="nav">
+      <img src="/static/images/Mama_s_Joy-removebg-preview.png" alt="Purple Rose Logo" id="logo">
+      <!-- <form action="/search" method="get">
+          <input type="search" name="q" placeholder="Search...">
+          <input type="submit" value="Search">
+      </form> -->
+      <img src="/static/images/andrae-ricketts-Q9_zv0LN4jU-unsplash.jpg" alt="Profile" class="profile-image"
+          loading="lazy">
+  </header>
     <div class="container">
       <div class="left">
         <div class="calendar">

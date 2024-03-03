@@ -1,7 +1,8 @@
 from flask import render_template, request, redirect, url_for,  send_from_directory, session
+#from werkzeug.security import generate_password_hash, check_password_hash
 from mamajoy.models import db, User, ChildInfo, Note
 from datetime import datetime
-from mamajoy import app
+from mamajoy import app, bcrypt
 
 #class User(db.Model):
    # id = db.Column(db.Integer, primary_key=True)
@@ -26,7 +27,7 @@ def about():
 def get_image(filename):
     return send_from_directory('static/images', filename)
 
-@app.route('/child_info/create', methods=['POST'])
+@app.route('/create_childinfo', methods=['POST'])
 def create_child_info():
     if request.method == 'POST':
         child_name = request.form.get("babyName")
@@ -45,14 +46,18 @@ def create_child_info():
         Apgar_Score = request.form.get('babyApgarScore')
         Birth_Complications = request.form.get('babyBirthComplications')
         user_id = session['user_id']
-        print(child_name)
 
         new_child_info = ChildInfo(child_name=child_name, date_of_birth=date_of_birth, gender=gender,
-                                      weight=weight, height=height, user_id=user_id)
+                                      weight=weight, height=height, user_id=user_id, babyBloodType=babyBloodType,
+                                      babyMedicalHistory=babyMedicalHistory, babyAllergies=Allergies, babyPediatricianName=Pediatrician_Name,
+                                      babyPediatricianPhone=Pediatrician_Phone, babyHospitalBirth=Hospital_Birth, babyDeliveryType=Delivery_Type,
+                                      babyApgarScore=Apgar_Score, babyBirthComplications=Birth_Complications)
         db.session.add(new_child_info)
         
         db.session.commit()
         return 'Child info created successfully!'
+    else:
+        return 'an error occurred'
     return render_template("nav.html")
 
 
@@ -96,6 +101,7 @@ def serve_form_css():
 
 @app.route('/templates/calender')
 def calendar_redirect():
+
     # Redirect to the desired page based on the navigation HTML
     return render_template('calender.html')
 
@@ -116,9 +122,10 @@ def login():
 
         # Check if the user exists in the database
         user = User.query.filter_by(email=email).first()
+        valid_password = bcrypt.check_password_hash(user.password, password)
 
         # Check if the password is correct
-        if user and user.password == password:
+        if user and valid_password == True:
             session['user_id'] = user.id
             
 
@@ -143,9 +150,10 @@ def register():
         else:
 
         # Hash the password before storing it in the database
-        #hashed_password = generate_password_hash(password, method='sha256')
+            hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        
             
-            new_user = User(username=username, email=email, password=password)
+            new_user = User(username=username, email=email, password=hashed_password)
             db.session.add(new_user)
             db.session.commit()
             return redirect(url_for('dashboard'))
